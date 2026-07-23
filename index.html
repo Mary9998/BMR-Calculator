@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>Calculadora de Metabolismo Basal</header>
+
+    <section>
+        <div id="reports">
+        <p>
+            Informe seu gênero biologico:
+            <br>
+            <input type="radio" name="gender" id="masc" class="sex">
+            <label for="masc" class="masculine">Masculino</label>
+            <input type="radio" name="gender" id="femi" class="sex">
+            <label for="femi" class="feminine">Feminino</label>
+        </p>
+        <p>
+            Informe sua idade: <input type="number" id="age" name="age" required>
+        </p>
+
+        <p>
+            Informe seu peso em kg: <input type="number" id="kg" name="kg" required>
+        </p>
+
+        <p>
+            Informe sua altura em centímetros: <input type="number" name="height" id="height" required>
+        </p>
+
+        <p>
+            <input type="button" name="btnCalculate" id="btnCalculate" value="Calcular" onclick="calculate()">
+        </p>
+    </div>
+
+    <div id="result">
+        Seu resultado 
+    </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

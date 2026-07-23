@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@400;600;700&display=swap');
+
+:root {
+  --rosa-fundo:      #fff2f6;
+  --rosa-claro:      #ffe0ec;
+  --rosa-medio:      #ffb6c9;
+  --rosa-forte:      #ff8fab;
+  --rosa-escuro:     #e85d8a;
+  --branco:          #ffffff;
+  --texto:           #6b4457;
+  --texto-suave:     #9c7385;
+  --sombra-sticker:  4px 4px 0px rgba(232, 93, 138, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 20%, #ffe9f1 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, #ffe9f1 0%, transparent 45%),
+    var(--rosa-fundo);
+  font-family: 'Quicksand', sans-serif;
+  color: var(--texto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 80px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* estrelinhas flutuando no fundo */
+body::before,
+body::after {
+  content: "⋆˙⟡";
+  position: fixed;
+  font-size: 28px;
+  opacity: 0.6;
+  animation: flutuar 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+body::before {
+  top: 12%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+body::after {
+  bottom: 10%;
+  right: 8%;
+  font-size: 22px;
+  animation-delay: 2s;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(12deg); }
+}
+
+/* Header */
+
+header {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: clamp(24px, 5vw, 34px);
+  color: var(--rosa-escuro);
+  background: var(--branco);
+  padding: 18px 32px;
+  border-radius: 30px;
+  border: 3px solid var(--rosa-medio);
+  box-shadow: var(--sombra-sticker);
+  text-align: center;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+header::before {
+  content: "𔘓";
+  margin-right: 10px;
+}
+
+header::after {
+  content: "-`𖹭´-";
+  margin-left: 10px;
+}
+
+/* Section / Card  */
+
+section {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* card com os campos do formulário (primeira div da section) */
+section > div:first-of-type {
+  background: var(--branco);
+  border: 3px dashed var(--rosa-medio);
+  border-radius: 28px;
+  padding: 28px 24px;
+  box-shadow: var(--sombra-sticker);
+  position: relative;
+}
+
+section > div:first-of-type::before {
+  content: "𝜗ৎ";
+  position: absolute;
+  top: -18px;
+  left: -14px;
+  font-size: 28px;
+  transform: rotate(-15deg);
+}
+
+section p {
+  margin: 0 0 20px 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--texto);
+}
+
+section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inputs numéricos */
+
+input[type="number"] {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--texto);
+  background: var(--rosa-fundo);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 16px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]:focus {
+  border-color: var(--rosa-forte);
+  box-shadow: 0 0 0 4px rgba(255, 143, 171, 0.25);
+  transform: scale(1.02);
+}
+
+input[type="number"]::placeholder {
+  color: var(--texto-suave);
+}
+
+/* Radio buttons (gênero) */
+
+.sex{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.feminine, .masculine {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 10px 0 0;
+  padding: 8px 18px;
+  background: var(--rosa-fundo);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+label[for="masc"]::before {
+  content: "♂";
+}
+
+label[for="femi"]::before {
+  content: "♀";
+}
+
+label[for="masc"]:hover,
+label[for="femi"]:hover {
+  border-color: var(--rosa-medio);
+  transform: translateY(-2px);
+}
+
+input[type="radio"]:checked + label {
+  background: var(--rosa-medio);
+  border-color: var(--rosa-forte);
+  color: var(--branco);
+  box-shadow: 2px 2px 0px rgba(232, 93, 138, 0.3);
+}
+
+input[type="radio"]:focus-visible + label {
+  outline: 3px solid var(--rosa-forte);
+  outline-offset: 2px;
+}
+
+
+input[type="button"] {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px 20px;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  color: var(--branco);
+  background: linear-gradient(135deg, var(--rosa-medio), var(--rosa-forte));
+  border: 3px solid var(--branco);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 5px 0px var(--rosa-escuro);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+ 
+input[type="button"]::before {
+  content: "🐾 ";
+}
+ 
+input[type="button"]:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0px var(--rosa-escuro);
+}
+ 
+input[type="button"]:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0px var(--rosa-escuro);
+}
+ 
+input[type="button"]:focus-visible {
+  outline: 3px solid var(--rosa-forte);
+  outline-offset: 3px;
+}
+
+/* Resultado  */
+
+#result {
+  background: linear-gradient(135deg, var(--rosa-medio), var(--rosa-forte));
+  color: var(--branco);
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  padding: 26px 20px;
+  border-radius: 26px;
+  border: 3px solid var(--branco);
+  box-shadow: 0 6px 0px var(--rosa-escuro), var(--sombra-sticker);
+  position: relative;
+}
+
+#result::before {
+  display: block;
+  font-size: 13px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+/*Responsivo  */
+
+@media (max-width: 480px) {
+  section > div:first-of-type {
+    padding: 22px 18px;
+  }
+
+  header {
+    padding: 14px 20px;
+  }
+}
