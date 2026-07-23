@@ -80,12 +80,10 @@ header {
 }
 
 header::before {
-  content: "𔘓";
   margin-right: 10px;
 }
 
 header::after {
-  content: "-`𖹭´-";
   margin-left: 10px;
 }
 

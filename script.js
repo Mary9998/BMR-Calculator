@@ -21,9 +21,10 @@ function calculate() {
     if (gender[0].checked) {
       genero = "Masculino";
       let calculoMasc = 10 * peso + 6.25 * altura - 5 * idade + 5;
-      result.innerHTML = `${calculoMasc}`;
+      result.innerHTML = `Seu gasto calórico diário é de ${calculoMasc} kcal! `;
     } else {
       let calculoFemi = 10 * peso + 6.25 * altura - 5 * idade + 161;
+      result.innerHTML = `Seu gasto calórico diário é de ${calculoFemi} kcal! `;
     }
   }
 }
