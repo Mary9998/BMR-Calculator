@@ -1,15 +1,15 @@
 function calculate() {
-  let gender = document.getElementsByName("gender");
-  let age = document.getElementById("age");
-  let height = document.getElementById("height");
-  let kg = document.getElementById("kg");
+  const gender = document.getElementsByName("gender");
+  const age = document.getElementById("age");
+  const height = document.getElementById("height");
+  const kg = document.getElementById("kg");
 
-  let peso = Number(kg.value);
-  let idade = Number(age.value);
-  let altura = Number(height.value);
+  const peso = Number(kg.value);
+  const idade = Number(age.value);
+  const altura = Number(height.value);
 
-  let result = document.querySelector("div#result");
-  let genero = "";
+  const result = document.querySelector("div#result");
+  const genero = "";
 
   if (age.value.length == 0 || idade > 130 || idade < 1) {
     window.alert("Informe seu idade corretamente!");
